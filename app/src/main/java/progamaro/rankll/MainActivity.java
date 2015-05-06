@@ -1,16 +1,19 @@
 package progamaro.rankll;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import adapter.RecyclerAdapter;
-import classe.Rank;
+import dominio.Rank;
 
 
 public class MainActivity extends Activity {
@@ -20,12 +23,23 @@ public class MainActivity extends Activity {
 
     private RecyclerView mRecyclerView;
     private RecyclerAdapter adapter;
+    private Button btnTesteCadastroCoisa;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btnTesteCadastroCoisa = (Button) findViewById(R.id.btnTesteCadastroCoisa);
+
+        btnTesteCadastroCoisa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(MainActivity.this, CadastroCoisaActivity.class);
+                startActivity(it);
+            }
+        });
     }
 
 
