@@ -51,4 +51,36 @@ public class Rank {
     public void setNota(int nota) {
         this.nota = nota;
     }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public Coisa getCoisa() {
+        return coisa;
+    }
+
+    public void setCoisa(Coisa coisa) {
+        this.coisa = coisa;
+    }
+
+    public Date getDataInclusao() {
+        return dataInclusao;
+    }
+
+    public void setDataInclusao(Date dataInclusao) {
+        this.dataInclusao = dataInclusao;
+    }
 }

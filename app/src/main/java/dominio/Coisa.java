@@ -1,5 +1,8 @@
 package dominio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by helio on 05/05/15.
  */
@@ -8,17 +11,17 @@ public class Coisa {
     private int id;
     private String nome;
     private String descricao;
-    private String[] tags;
+    private List tags;
 
     public Coisa() {
     }
 
-    public Coisa(int id, String nome, String descricao, String[] tags) {
+    public Coisa(int id, String nome, String descricao, ArrayList tags) {
 
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-        this.tags = tags;
+        this.setTags(tags);
     }
 
     public Coisa(int id, String nome, String descricao) {
@@ -52,11 +55,11 @@ public class Coisa {
         this.descricao = descricao;
     }
 
-    public String[] getTags() {
+    public List getTags() {
         return tags;
     }
 
-    public void setTags(String[] tags) {
+    public void setTags(List tags) {
         this.tags = tags;
     }
 
@@ -64,4 +67,5 @@ public class Coisa {
     public String toString(){
         return this.getNome() + " / " + this.getDescricao();
     }
+
 }

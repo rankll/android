@@ -28,10 +28,22 @@
         android:inputType="textMultiLine"
         android:id="@+id/edtCadastroCoisaDescricao"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tags"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtCadastroCoisaTags"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnCadastroCoisa"
         android:text="Cadastrar"/>
+
+
 
 </LinearLayout>
