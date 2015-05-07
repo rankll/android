@@ -2,5 +2,8 @@
     <string name="app_name">Rankll</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+
+    <!-- Menus -->
+    <string name="action_settings">Configurações</string>
+    <string name="action_add_coisa">Adicionar</string>
 </resources>

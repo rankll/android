@@ -1,5 +1,6 @@
 package adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -8,12 +9,14 @@ import android.widget.TextView;
  * Created by helio on 05/05/15.
  */
 public class RecyclerRowHolder extends RecyclerView.ViewHolder {
-    protected TextView id;
-    protected TextView descricao;
-    private TextView nota;
+    private Context context;
+    public TextView id;
+    public TextView descricao;
 
-    public RecyclerRowHolder(View view){
-        super(view);
-
+    public RecyclerRowHolder(Context context, View itemView){
+        super(itemView);
+        this.context = context;
+        //id = (TextView)itemView.findViewById(R.id.tv_id);
+        //nome = (TextView)itemView.findViewById(R.id.tv_nome);
     }
 }

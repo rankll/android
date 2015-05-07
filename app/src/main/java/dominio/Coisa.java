@@ -10,6 +10,24 @@ public class Coisa {
     private String descricao;
     private String[] tags;
 
+    public Coisa() {
+    }
+
+    public Coisa(int id, String nome, String descricao, String[] tags) {
+
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.tags = tags;
+    }
+
+    public Coisa(int id, String nome, String descricao) {
+
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
     public int getId() {
         return id;
     }
