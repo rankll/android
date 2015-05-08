@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -25,10 +26,11 @@ public class MainActivity extends Activity {
     // Criar uma lista de Ranks
     List<Coisa> items = new ArrayList<Coisa>();
     private RecyclerView recyclerView;
-    private int REQUEST_CODE_COISA = 0;
     private RecyclerAdapter adapter;
+    private final int REQUEST_CODE_COISA = 0;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -39,7 +41,6 @@ public class MainActivity extends Activity {
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
     private void setLayout(){
