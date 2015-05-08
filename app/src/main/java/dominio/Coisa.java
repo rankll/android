@@ -1,9 +1,11 @@
 package dominio;
 
+import java.io.Serializable;
+
 /**
  * Created by helio on 05/05/15.
  */
-public class Coisa {
+public class Coisa implements Serializable {
 
     private int id;
     private String nome;

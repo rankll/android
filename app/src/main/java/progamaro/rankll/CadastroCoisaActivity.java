@@ -1,6 +1,7 @@
 package progamaro.rankll;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,7 +36,12 @@ public class CadastroCoisaActivity extends Activity {
                 _coisa.setDescricao(edtCadastroCoisaDescricao.getText().toString());
                 _coisa.setNome(edtCadastroCoisaNome.getText().toString());
 
-                Toast.makeText(CadastroCoisaActivity.this, _coisa.toString(), Toast.LENGTH_SHORT).show();
+                Intent it = new Intent();
+                it.putExtra("objCoisa", _coisa);
+                setResult(0, it);
+                finish();
+
+                //Toast.makeText(CadastroCoisaActivity.this, _coisa.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

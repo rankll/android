@@ -1,6 +1,7 @@
 package adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,10 +37,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerRowHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerRowHolder holder, int position) {
-        Coisa coisa = items.get(position);
-        //holder.id.setText(Integer.toString(coisa.getId()));
-        //holder.descricao.setText(coisa.getDescricao());
 
+        Coisa coisa = items.get(position);
+        //holder.imagem.setImageDrawable(Resources.getSystem().getDrawable(R.mipmap.ic_launcher));
+        holder.nome.setText(coisa.getNome());
+        holder.descricao.setText(coisa.getDescricao());
+
+        setAnimation(holder.linearLayout, position);
+    }
+
+    private void setAnimation(View viewToAnimate, int position)
+    {
+        // If the bound view wasn't previously displayed on screen, it's animated
+        if (position > lastPosition)
+        {
+            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override
