@@ -1,14 +1,12 @@
 package progamaro.rankll;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import dominio.Coisa;
 
@@ -19,9 +17,7 @@ public class CadastroCoisaActivity extends Activity {
 
     private EditText edtCadastroCoisaNome;
     private EditText edtCadastroCoisaDescricao;
-    private EditText edtCadastroCoisaTag;
     private Button btnCadastroCoisa;
-    private List<String> tags;
     private Coisa _coisa;
 
     @Override
@@ -31,9 +27,7 @@ public class CadastroCoisaActivity extends Activity {
 
         edtCadastroCoisaNome = (EditText) findViewById(R.id.edtCadastroCoisaNome);
         edtCadastroCoisaDescricao = (EditText) findViewById(R.id.edtCadastroCoisaDescricao);
-        edtCadastroCoisaTag = (EditText) findViewById(R.id.edtCadastroCoisaTags);
         btnCadastroCoisa = (Button) findViewById(R.id.btnCadastroCoisa);
-        tags = new ArrayList<String>();
 
         btnCadastroCoisa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,10 +36,12 @@ public class CadastroCoisaActivity extends Activity {
                 _coisa.setDescricao(edtCadastroCoisaDescricao.getText().toString());
                 _coisa.setNome(edtCadastroCoisaNome.getText().toString());
 
-                tags.add(edtCadastroCoisaTag.getText().toString());
-                _coisa.setTags(tags);
+                Intent it = new Intent();
+                it.putExtra("objCoisa", _coisa);
+                setResult(0, it);
+                finish();
 
-                Toast.makeText(CadastroCoisaActivity.this, _coisa.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(CadastroCoisaActivity.this, _coisa.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

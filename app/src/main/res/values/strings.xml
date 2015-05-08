@@ -6,4 +6,9 @@
     <!-- Menus -->
     <string name="action_settings">Configurações</string>
     <string name="action_add_coisa">Adicionar</string>
+
+
+
+
+    <string name="titulo_coisa_detalhes">Detalhes da Coisa</string>
 </resources>

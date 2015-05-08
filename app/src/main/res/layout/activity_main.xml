@@ -11,6 +11,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
+        android:clickable="true"
+        android:longClickable="true"
         android:scrollbars="vertical"/>
 
 </LinearLayout>

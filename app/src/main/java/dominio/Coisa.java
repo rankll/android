@@ -1,27 +1,26 @@
 package dominio;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * Created by helio on 05/05/15.
  */
-public class Coisa {
+public class Coisa implements Serializable {
 
     private int id;
     private String nome;
     private String descricao;
-    private List tags;
+    private String[] tags;
 
     public Coisa() {
     }
 
-    public Coisa(int id, String nome, String descricao, ArrayList tags) {
+    public Coisa(int id, String nome, String descricao, String[] tags) {
 
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-        this.setTags(tags);
+        this.tags = tags;
     }
 
     public Coisa(int id, String nome, String descricao) {
@@ -55,11 +54,11 @@ public class Coisa {
         this.descricao = descricao;
     }
 
-    public List getTags() {
+    public String[] getTags() {
         return tags;
     }
 
-    public void setTags(List tags) {
+    public void setTags(String[] tags) {
         this.tags = tags;
     }
 
@@ -67,5 +66,4 @@ public class Coisa {
     public String toString(){
         return this.getNome() + " / " + this.getDescricao();
     }
-
 }

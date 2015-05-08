@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,8 @@ public class MainActivity extends Activity {
     // Criar uma lista de Ranks
     List<Coisa> items = new ArrayList<Coisa>();
     private RecyclerView recyclerView;
-    //private RecyclerAdapter adapter;
+    private int REQUEST_CODE_COISA = 0;
+    private RecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +35,11 @@ public class MainActivity extends Activity {
 
         criar_popular();
         setLayout();
-        RecyclerAdapter usuAdapter = new RecyclerAdapter(this, items);
-        recyclerView.setAdapter(usuAdapter);
+        adapter = new RecyclerAdapter(this, items);
+        recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setClickable(true);
+
     }
 
     private void setLayout(){
@@ -47,10 +49,10 @@ public class MainActivity extends Activity {
     public void criar_popular(){
         items = new ArrayList<Coisa>();
 
-        for(int i=0; i<100; i++){
-            items.add(new Coisa(i, "Grécio Miranda "+i, ""));
-            items.add(new Coisa(i, "André Miranda" + i, ""));
-            items.add(new Coisa(i, "Hélio Feliciano" + i, ""));
+        for(int i=0; i<5; i++){
+            items.add(new Coisa(i, "Grécio Miranda "+i, "bla bla bla bla bla bla"));
+            items.add(new Coisa(i, "André Miranda " + i, "hehehe hehehehhe heheheheh"));
+            items.add(new Coisa(i, "Hélio Feliciano " + i, "bla bla bla heheheheheheh"));
         }
 
     }
@@ -74,9 +76,22 @@ public class MainActivity extends Activity {
             return true;
         } else if(id == R.id.action_add_coisa){
             Intent it = new Intent(MainActivity.this, CadastroCoisaActivity.class);
-            startActivity(it);
+            startActivityForResult(it, REQUEST_CODE_COISA);
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == REQUEST_CODE_COISA){
+            Coisa _coisa = (Coisa)data.getSerializableExtra("objCoisa");
+            items.add(_coisa);
+            adapter.notifyDataSetChanged();
+
+            Toast.makeText(MainActivity.this, _coisa.toString(), Toast.LENGTH_SHORT).show();
+        }
     }
 }
