@@ -20,8 +20,8 @@ public class RankearActivity extends Activity {
     private Coisa coisa;
     private Rank rank;
     private RatingBar rb_rating;
-    private TextView tv_rankear_coisa_nome;
-    private EditText et_rankear_comentario;
+    private TextView tvRankearCoisaNome;
+    private EditText etRankearCoisaComentario;
     private Button btnRankear;
 
     @Override
@@ -34,17 +34,15 @@ public class RankearActivity extends Activity {
         coisa = (Coisa) it.getExtras().get("Coisa");
 
         rb_rating = (RatingBar) findViewById(R.id.rb_rating);
-        et_rankear_comentario = (EditText) findViewById(R.id.et_rankear_comentario);
-        tv_rankear_coisa_nome = (TextView) findViewById(R.id.tv_rankear_coisa_nome);
-        tv_rankear_coisa_nome.setText(coisa.getNome());
-        btnRankear = (Button) findViewById(R.id.btnRankear);
+        etRankearCoisaComentario = (EditText) findViewById(R.id.et_rankear_comentario);
+        tvRankearCoisaNome = (TextView) findViewById(R.id.tv_rankear_coisa_nome);
+        tvRankearCoisaNome.setText(coisa.getNome());
+        btnRankear = (Button) findViewById(R.id.btn_rankear);
 
         btnRankear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rank = new Rank();
-
-
                 Toast.makeText(RankearActivity.this, String.valueOf(rb_rating.getRating()), Toast.LENGTH_SHORT).show();
             }
         });

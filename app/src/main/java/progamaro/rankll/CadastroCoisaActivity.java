@@ -25,9 +25,9 @@ public class CadastroCoisaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coisa_cadastro);
 
-        edtCadastroCoisaNome = (EditText) findViewById(R.id.edtCadastroCoisaNome);
-        edtCadastroCoisaDescricao = (EditText) findViewById(R.id.edtCadastroCoisaDescricao);
-        btnCadastroCoisa = (Button) findViewById(R.id.btnCadastroCoisa);
+        edtCadastroCoisaNome = (EditText) findViewById(R.id.et_cadastro_coisa_nome);
+        edtCadastroCoisaDescricao = (EditText) findViewById(R.id.et_cadastro_coisa_descricao);
+        btnCadastroCoisa = (Button) findViewById(R.id.btn_cadastro_coisa);
 
         btnCadastroCoisa.setOnClickListener(new View.OnClickListener() {
             @Override

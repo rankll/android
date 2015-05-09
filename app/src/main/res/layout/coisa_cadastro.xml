@@ -16,7 +16,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtCadastroCoisaNome"/>
+        android:id="@+id/et_cadastro_coisa_nome"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:id="@+id/edtCadastroCoisaDescricao"/>
+        android:id="@+id/et_cadastro_coisa_descricao"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,12 +37,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtCadastroCoisaTags"/>
+        android:id="@+id/et_cadastro_coisa_tags"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCadastroCoisa"
+        android:id="@+id/btn_cadastro_coisa"
         android:text="Cadastrar"/>
 
 

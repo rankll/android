@@ -1,21 +1,18 @@
 package adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Toast;
 
 import java.util.List;
 
 import dominio.Coisa;
-import progamaro.rankll.MainActivityDetalhes;
+import progamaro.rankll.ListagemCoisaDetalhesActivity;
 import progamaro.rankll.R;
 import progamaro.rankll.RankearActivity;
 
@@ -35,7 +32,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerRowHolder> {
 
     @Override
     public RecyclerRowHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_main_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.coisa_listagem_item, parent, false);
 
         return new RecyclerRowHolder(context, view);
     }
@@ -60,7 +57,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerRowHolder> {
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Intent it = new Intent(context, MainActivityDetalhes.class);
+                Intent it = new Intent(context, ListagemCoisaDetalhesActivity.class);
                 it.putExtra("Coisa", coisa);
                 context.startActivity(it);
                 return true;

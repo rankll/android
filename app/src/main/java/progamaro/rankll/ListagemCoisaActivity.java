@@ -8,9 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,14 +15,13 @@ import java.util.List;
 
 import adapter.RecyclerAdapter;
 import dominio.Coisa;
-import dominio.Rank;
 
 
-public class MainActivity extends Activity {
+public class ListagemCoisaActivity extends Activity {
 
     // Criar uma lista de Ranks
     List<Coisa> items = new ArrayList<Coisa>();
-    private RecyclerView recyclerView;
+    private RecyclerView rvCoisa;
     private RecyclerAdapter adapter;
     private final int REQUEST_CODE_COISA = 0;
 
@@ -33,27 +29,27 @@ public class MainActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.coisa_listagem);
 
         criar_popular();
         setLayout();
         adapter = new RecyclerAdapter(this, items);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        rvCoisa.setAdapter(adapter);
+        rvCoisa.setItemAnimator(new DefaultItemAnimator());
+        rvCoisa.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void setLayout(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        rvCoisa = (RecyclerView) findViewById(R.id.rv_coisa);
     }
 
     public void criar_popular(){
         items = new ArrayList<Coisa>();
 
         for(int i=0; i<5; i++){
-            items.add(new Coisa(i, "Grécio Miranda "+i, "bla bla bla bla bla bla"));
-            items.add(new Coisa(i, "André Miranda " + i, "hehehe hehehehhe heheheheh"));
-            items.add(new Coisa(i, "Hélio Feliciano " + i, "bla bla bla heheheheheheh"));
+            items.add(new Coisa(i, "Grécio Beline "+i, "descricaogrecio "+i));
+            items.add(new Coisa(i, "André Miranda " + i, "descricaoandre "+i));
+            items.add(new Coisa(i, "Hélio Feliciano " + i, "descricaohelio "+i));
         }
 
     }
@@ -76,7 +72,7 @@ public class MainActivity extends Activity {
         if (id == R.id.action_settings) {
             return true;
         } else if(id == R.id.action_add_coisa){
-            Intent it = new Intent(MainActivity.this, CadastroCoisaActivity.class);
+            Intent it = new Intent(ListagemCoisaActivity.this, CadastroCoisaActivity.class);
             startActivityForResult(it, REQUEST_CODE_COISA);
         }
 
@@ -92,7 +88,7 @@ public class MainActivity extends Activity {
             items.add(_coisa);
             adapter.notifyDataSetChanged();
 
-            Toast.makeText(MainActivity.this, _coisa.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(ListagemCoisaActivity.this, _coisa.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 }

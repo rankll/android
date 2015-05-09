@@ -12,7 +12,7 @@ import dominio.Coisa;
 /**
  * Created by helio on 08/05/15.
  */
-public class MainActivityDetalhes extends Activity {
+public class ListagemCoisaDetalhesActivity extends Activity {
 
     private Coisa coisa;
     private EditText edtCoisaNome;
@@ -22,7 +22,7 @@ public class MainActivityDetalhes extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_detalhes);
+        setContentView(R.layout.coisa_detalhes);
 
         this.edtCoisaDescricao = (EditText) findViewById(R.id.edtEdicaoCoisaDescricao);
         this.edtCoisaNome = (EditText) findViewById(R.id.edtEdicaoCoisaNome);
@@ -35,7 +35,7 @@ public class MainActivityDetalhes extends Activity {
         this.btnAlterar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivityDetalhes.this, "TO DO", Toast.LENGTH_LONG).show();
+                Toast.makeText(ListagemCoisaDetalhesActivity.this, "TO DO", Toast.LENGTH_LONG).show();
             }
         });
     }
