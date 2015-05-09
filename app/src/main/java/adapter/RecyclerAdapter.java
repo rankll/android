@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import dominio.Coisa;
+import progamaro.rankll.MainActivityDetalhes;
 import progamaro.rankll.R;
 import progamaro.rankll.RankearActivity;
 
@@ -53,6 +54,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerRowHolder> {
                 Intent it = new Intent(context, RankearActivity.class);
                 it.putExtra("Coisa", coisa);
                 context.startActivity(it);
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent it = new Intent(context, MainActivityDetalhes.class);
+                it.putExtra("Coisa", coisa);
+                context.startActivity(it);
+                return true;
             }
         });
 

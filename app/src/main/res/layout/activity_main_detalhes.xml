@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/edtCadastroCoisaNome"/>
+        android:id="@+id/edtEdicaoCoisaNome"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,12 +33,12 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:layout_marginTop="16dp"
-        android:id="@+id/edtCadastroCoisaDescricao"/>
+        android:id="@+id/edtEdicaoCoisaDescricao"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCadastroCoisa"
+        android:id="@+id/btnAlterarCoisa"
         android:layout_marginTop="16dp"
         android:text="Alterar"/>
 
