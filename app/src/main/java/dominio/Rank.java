@@ -15,7 +15,9 @@ public class Rank {
     private Coisa coisa;
     private Date dataInclusao;
 
-    public Rank(){}
+    public Rank(){
+        this.dataInclusao = new Date();
+    }
 
     public Rank(String descricao, int nota){
         this.descricao = descricao;
