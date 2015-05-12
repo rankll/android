@@ -1,5 +1,6 @@
 package adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import java.util.List;
 
 import dominio.Coisa;
+import progamaro.rankll.ListagemCoisaActivity;
 import progamaro.rankll.ListagemCoisaDetalhesActivity;
 import progamaro.rankll.R;
 import progamaro.rankll.RankearActivity;
@@ -48,8 +50,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerRowHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(context, RankearActivity.class);
+                Intent it = new Intent(context, ListagemCoisaDetalhesActivity.class);
                 it.putExtra("Coisa", coisa);
+                //startActivityForResult();
                 context.startActivity(it);
             }
         });
@@ -57,7 +60,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerRowHolder> {
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Intent it = new Intent(context, ListagemCoisaDetalhesActivity.class);
+                Intent it = new Intent(context, RankearActivity.class);
                 it.putExtra("Coisa", coisa);
                 context.startActivity(it);
                 return true;

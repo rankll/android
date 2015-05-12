@@ -11,45 +11,53 @@ import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.CoisaAdapter;
 import adapter.RecyclerAdapter;
 import dominio.Coisa;
 
 
-public class ListagemCoisaActivity extends Activity {
+public class ListagemCoisaActivity_with_listview extends Activity {
 
     // Criar uma lista de Ranks
     List<Coisa> items = new ArrayList<Coisa>();
-    private RecyclerView rvCoisa;
-    private RecyclerAdapter adapter;
-    private final int REQUEST_CODE_COISA = 0;
+    private ListView lvCoisa;
+    private final int REQUEST_UPDATE_COISA = 0;
+    private final int REQUEST_INSERT_COISA = 1;
+    private CoisaAdapter adapter;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.coisa_listagem);
+        setContentView(R.layout.coisa_listagem_with_listview);
 
-        criar_popular();
-        setLayout();
-        adapter = new RecyclerAdapter(this, items);
-        rvCoisa.setAdapter(adapter);
-        rvCoisa.setItemAnimator(new DefaultItemAnimator());
-        rvCoisa.setLayoutManager(new LinearLayoutManager(this));
-    }
+        //criar_popular();
+        adapter = new CoisaAdapter(this, items);
+        lvCoisa = (ListView)findViewById(R.id.lv_coisa);
+        lvCoisa.setAdapter(adapter);
 
-    private void setLayout(){
-        rvCoisa = (RecyclerView) findViewById(R.id.rv_coisa);
+        lvCoisa.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Coisa item = (Coisa) parent.getItemAtPosition(position);
+                item.setPosition(position);
+
+
+                Intent it = new Intent(ListagemCoisaActivity_with_listview.this, ListagemCoisaDetalhesActivity.class);
+                it.putExtra("Coisa", item);
+                startActivityForResult(it, REQUEST_UPDATE_COISA);
+            }
+        });
+
     }
 
     public void criar_popular(){
@@ -81,8 +89,8 @@ public class ListagemCoisaActivity extends Activity {
         if (id == R.id.action_settings) {
             return true;
         } else if(id == R.id.action_add_coisa){
-            Intent it = new Intent(ListagemCoisaActivity.this, CadastroCoisaActivity.class);
-            startActivityForResult(it, REQUEST_CODE_COISA);
+            Intent it = new Intent(ListagemCoisaActivity_with_listview.this, CadastroCoisaActivity.class);
+            startActivityForResult(it, REQUEST_INSERT_COISA);
         } else if(id == R.id.action_notification){
             EnviarNotificacao();
         }
@@ -97,7 +105,7 @@ public class ListagemCoisaActivity extends Activity {
                         .setContentTitle("Nova notificação")
                         .setContentText("Olá, seja bem vindo ao Rankll!");
 
-        Intent resultIntent = new Intent(this, ListagemCoisaActivity.class);
+        Intent resultIntent = new Intent(this, ListagemCoisaActivity_with_listview.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addParentStack(RankearActivity.class);
         stackBuilder.addNextIntent(resultIntent);
@@ -118,12 +126,27 @@ public class ListagemCoisaActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == REQUEST_CODE_COISA){
-            Coisa _coisa = (Coisa)data.getSerializableExtra("objCoisa");
-            items.add(_coisa);
-            adapter.notifyDataSetChanged();
+        Coisa _coisa = null;
+        if (data!=null){
+            _coisa = (Coisa) data.getSerializableExtra("objCoisa");
 
-            Toast.makeText(ListagemCoisaActivity.this, _coisa.toString(), Toast.LENGTH_SHORT).show();
+            if (requestCode == REQUEST_INSERT_COISA) {
+                //_coisa = (Coisa) data.getSerializableExtra("objCoisa");
+                items.add(_coisa);
+                adapter.notifyDataSetChanged();
+            } else if (requestCode == REQUEST_UPDATE_COISA) {
+                //_coisa = (Coisa) data.getSerializableExtra("objCoisa");
+
+                for (Coisa item : items) {
+                    if (item.getPosition() == _coisa.getPosition()) {
+                        item.setDescricao(_coisa.getDescricao());
+                        item.setNome(_coisa.getNome());
+                    }
+                }
+
+                //items.add(_coisa);
+                adapter.notifyDataSetChanged();
+            }
         }
     }
 }

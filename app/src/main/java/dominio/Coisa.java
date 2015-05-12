@@ -12,6 +12,8 @@ public class Coisa implements Serializable {
     private String descricao;
     private String[] tags;
 
+    private int position;
+
     public Coisa() {
     }
 
@@ -23,8 +25,14 @@ public class Coisa implements Serializable {
         this.tags = tags;
     }
 
-    public Coisa(int id, String nome, String descricao) {
+    public Coisa(int id, String nome, String descricao, int position) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.position = position;
+    }
 
+    public Coisa(int id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -60,6 +68,14 @@ public class Coisa implements Serializable {
 
     public void setTags(String[] tags) {
         this.tags = tags;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     @Override

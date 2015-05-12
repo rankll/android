@@ -43,7 +43,8 @@ public class RankearActivity extends Activity {
             @Override
             public void onClick(View v) {
                 rank = new Rank();
-                Toast.makeText(RankearActivity.this, String.valueOf(rb_rating.getRating()), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(RankearActivity.this, String.valueOf(rb_rating.getRating()), Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
     }

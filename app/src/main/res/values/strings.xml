@@ -5,7 +5,10 @@
 
     <!-- Menus -->
     <string name="action_settings">Configurações</string>
+    <string name="action_notification">Enviar Notificação</string>
     <string name="action_add_coisa">Adicionar</string>
+    <string name="action_choose_picture">Escolher uma foto</string>
+    <string name="action_picture">Tirar uma foto</string>
 
 
 

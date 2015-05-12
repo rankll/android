@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".ListagemCoisaActivity"
+            android:name=".ListagemCoisaActivity_with_listview"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ListagemCoisaActivity"/>
         <activity
             android:name=".CadastroCoisaActivity"
             android:label="@string/app_name" >
