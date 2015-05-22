@@ -43,7 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btn_cadastro_coisa"
-        android:text="Cadastrar"/>
+        android:text="Cadastrar"
+        style="@style/btnCadastro"/>
 
 
 

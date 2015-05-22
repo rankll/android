@@ -37,8 +37,8 @@ public class CardCoisaAdapter extends RecyclerView.Adapter<CardCoisaAdapter.View
     @Override
     public void onBindViewHolder(CardCoisaAdapter.ViewHolder holder, int position) {
         final Coisa coisa = items.get(position);
-        holder.tvMovie.setText(coisa.getNome());
-        holder.tvMovie.setOnClickListener(new View.OnClickListener() {
+        holder.tv_item_nome_coisa.setText(coisa.getNome());
+        holder.tv_item_nome_coisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "teste", Toast.LENGTH_SHORT).show();
@@ -52,11 +52,11 @@ public class CardCoisaAdapter extends RecyclerView.Adapter<CardCoisaAdapter.View
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView tvMovie;
+        public TextView tv_item_nome_coisa;
 
         public ViewHolder(View itemView, final Context context) {
             super(itemView);
-            tvMovie = (TextView)itemView.findViewById(R.id.tv_movie);
+            tv_item_nome_coisa = (TextView)itemView.findViewById(R.id.tv_item_nome_coisa);
 
 
         }
