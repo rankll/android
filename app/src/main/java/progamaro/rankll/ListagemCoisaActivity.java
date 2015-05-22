@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.CardCoisaAdapter;
 import adapter.RecyclerAdapter;
 import dominio.Coisa;
 
@@ -31,7 +32,7 @@ public class ListagemCoisaActivity extends Activity {
     // Criar uma lista de Ranks
     List<Coisa> items = new ArrayList<Coisa>();
     private RecyclerView rvCoisa;
-    private RecyclerAdapter adapter;
+    private CardCoisaAdapter adapter;
     private final int REQUEST_CODE_COISA = 0;
 
     @Override
@@ -42,8 +43,7 @@ public class ListagemCoisaActivity extends Activity {
 
         criar_popular();
         setLayout();
-        adapter = new RecyclerAdapter(this, items);
-        rvCoisa.setAdapter(adapter);
+        rvCoisa.setAdapter(new CardCoisaAdapter(this, items));
         rvCoisa.setItemAnimator(new DefaultItemAnimator());
         rvCoisa.setLayoutManager(new LinearLayoutManager(this));
     }
