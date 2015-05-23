@@ -56,9 +56,9 @@ public class ListagemCoisaActivity extends Activity {
         items = new ArrayList<Coisa>();
 
         for(int i=0; i<5; i++){
-            items.add(new Coisa(i, "Grécio Beline "+i, "descricaogrecio "+i));
-            items.add(new Coisa(i, "André Miranda " + i, "descricaoandre "+i));
-            items.add(new Coisa(i, "Hélio Feliciano " + i, "descricaohelio "+i));
+            items.add(new Coisa(i, "Restaurante", "bla bla bla bla jdklasjdlkjas dsajd jasldksa"));
+            items.add(new Coisa(i, "Praia", "blo blo blo blo blo blo dashdjksadsa dashdhakd"));
+            items.add(new Coisa(i, "Bairro", "blu blu blu bdkjaskdljalsdjsajd  djasdkas dkajdjadl lskdja"));
         }
 
     }

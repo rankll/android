@@ -2,28 +2,81 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_coisa="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_marginBottom="4dp"
+    android:padding="6dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        card_coisa:contentPadding="4dp"
-        card_coisa:cardBackgroundColor="@color/cardview_dark_background"
+        card_coisa:cardBackgroundColor="@android:color/transparent"
         card_coisa:cardCornerRadius="3dp">
 
-        <TextView
-            android:id="@+id/tv_item_nome_coisa"
+        <LinearLayout
+            android:id="@+id/ll_card_coisa"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:background="@color/cardview_light_background"
-            android:layout_gravity="bottom"
-            android:gravity="center_vertical"
-            android:textSize="24sp"
-            android:text="Test"/>
+            android:layout_height="200dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="4dp"
+                android:background="#00695C">
+
+                <TextView
+                    android:id="@+id/tv_item_coisa"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/white"
+                    android:text="Restaurante"
+                    android:layout_marginBottom="2dp"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white"
+                    android:text="Testdsadsdasdasdasdas dsadsaldjasjd sadjsadjkas dsajkldj askldkasljkdasl"
+                    android:layout_marginBottom="2dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_card_coisa"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/burger_king_in_london"
+                android:scaleType="centerCrop"
+                />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/white"
+                android:alpha="0.6"
+                android:padding="20dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_item_nome_coisa"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"
+                    android:text="Testdsadsdasdasdasdasjkdasl"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </android.support.v7.widget.CardView>
 

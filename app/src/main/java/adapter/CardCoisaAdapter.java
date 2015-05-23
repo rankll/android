@@ -37,7 +37,9 @@ public class CardCoisaAdapter extends RecyclerView.Adapter<CardCoisaAdapter.View
     @Override
     public void onBindViewHolder(CardCoisaAdapter.ViewHolder holder, int position) {
         final Coisa coisa = items.get(position);
-        holder.tv_item_nome_coisa.setText(coisa.getNome());
+
+        holder.tv_item_nome_coisa.setText(coisa.getDescricao());
+        holder.tv_item_coisa.setText(coisa.getNome());
         holder.tv_item_nome_coisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,10 +54,12 @@ public class CardCoisaAdapter extends RecyclerView.Adapter<CardCoisaAdapter.View
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
+        public TextView tv_item_coisa;
         public TextView tv_item_nome_coisa;
 
         public ViewHolder(View itemView, final Context context) {
             super(itemView);
+            tv_item_coisa = (TextView)itemView.findViewById(R.id.tv_item_coisa);
             tv_item_nome_coisa = (TextView)itemView.findViewById(R.id.tv_item_nome_coisa);
 
 

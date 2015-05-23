@@ -14,4 +14,5 @@
 
 
     <string name="titulo_coisa_detalhes">Detalhes da Coisa</string>
+    <string name="coisa_cadastro_descricao">Descricao</string>
 </resources>
