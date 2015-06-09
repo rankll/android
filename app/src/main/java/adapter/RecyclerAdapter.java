@@ -1,6 +1,5 @@
 package adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +12,6 @@ import android.view.animation.AnimationUtils;
 import java.util.List;
 
 import dominio.Coisa;
-import progamaro.rankll.ListagemCoisaActivity;
 import progamaro.rankll.ListagemCoisaDetalhesActivity;
 import progamaro.rankll.R;
 import progamaro.rankll.RankearActivity;
@@ -45,13 +43,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerRowHolder> {
 
         final Coisa coisa = items.get(position);
         //holder.imagem.setImageDrawable(Resources.getSystem().getDrawable(R.mipmap.ic_launcher));
-        holder.nome.setText(coisa.getNome());
-        holder.descricao.setText(coisa.getDescricao());
+        holder.nome.setText(coisa.getName());
+        holder.descricao.setText(coisa.getDescription());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(context, ListagemCoisaDetalhesActivity.class);
-                it.putExtra("Coisa", coisa);
+                it.putExtra("Thing", coisa);
                 //startActivityForResult();
                 context.startActivity(it);
             }

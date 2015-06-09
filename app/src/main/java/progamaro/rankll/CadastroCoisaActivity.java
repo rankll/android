@@ -1,10 +1,6 @@
 package progamaro.rankll;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,9 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.InputStream;
 
@@ -51,8 +45,8 @@ public class CadastroCoisaActivity extends Activity {
             @Override
             public void onClick(View v) {
                 _coisa = new Coisa();
-                _coisa.setDescricao(edtCadastroCoisaDescricao.getText().toString());
-                _coisa.setNome(edtCadastroCoisaNome.getText().toString());
+                _coisa.setDescription(edtCadastroCoisaDescricao.getText().toString());
+                _coisa.setName(edtCadastroCoisaNome.getText().toString());
 
                 Intent it = new Intent();
                 it.putExtra("objCoisa", _coisa);

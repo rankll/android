@@ -11,19 +11,15 @@ import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import adapter.CardCoisaAdapter;
-import adapter.RecyclerAdapter;
+import data.DataThings;
 import dominio.Coisa;
 
 
@@ -41,6 +37,9 @@ public class ListagemCoisaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coisa_listagem);
 
+        DataThings data = new DataThings();
+        data.getYourThings(this);
+
         criar_popular();
         setLayout();
         rvCoisa.setAdapter(new CardCoisaAdapter(this, items));
@@ -56,9 +55,9 @@ public class ListagemCoisaActivity extends Activity {
         items = new ArrayList<Coisa>();
 
         for(int i=0; i<5; i++){
-            items.add(new Coisa(i, "Restaurante", "bla bla bla bla jdklasjdlkjas dsajd jasldksa"));
-            items.add(new Coisa(i, "Praia", "blo blo blo blo blo blo dashdjksadsa dashdhakd"));
-            items.add(new Coisa(i, "Bairro", "blu blu blu bdkjaskdljalsdjsajd  djasdkas dkajdjadl lskdja"));
+            items.add(new Coisa(i+"", "Restaurante", "bla bla bla bla jdklasjdlkjas dsajd jasldksa"));
+            items.add(new Coisa(i+"", "Praia", "blo blo blo blo blo blo dashdjksadsa dashdhakd"));
+            items.add(new Coisa(i+"", "Bairro", "blu blu blu bdkjaskdljalsdjsajd  djasdkas dkajdjadl lskdja"));
         }
 
     }

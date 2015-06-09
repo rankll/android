@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import dominio.Coisa;
 import dominio.Rank;
@@ -36,7 +35,7 @@ public class RankearActivity extends Activity {
         rb_rating = (RatingBar) findViewById(R.id.rb_rating);
         etRankearCoisaComentario = (EditText) findViewById(R.id.et_rankear_comentario);
         tvRankearCoisaNome = (TextView) findViewById(R.id.tv_rankear_coisa_nome);
-        tvRankearCoisaNome.setText(coisa.getNome());
+        tvRankearCoisaNome.setText(coisa.getName());
         btnRankear = (Button) findViewById(R.id.btn_rankear);
 
         btnRankear.setOnClickListener(new View.OnClickListener() {

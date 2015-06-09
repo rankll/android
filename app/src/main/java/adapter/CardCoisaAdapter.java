@@ -5,14 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
 import dominio.Coisa;
-import progamaro.rankll.ListagemCoisaActivity;
 import progamaro.rankll.R;
 
 /**
@@ -38,8 +36,8 @@ public class CardCoisaAdapter extends RecyclerView.Adapter<CardCoisaAdapter.View
     public void onBindViewHolder(CardCoisaAdapter.ViewHolder holder, int position) {
         final Coisa coisa = items.get(position);
 
-        holder.tv_item_nome_coisa.setText(coisa.getDescricao());
-        holder.tv_item_coisa.setText(coisa.getNome());
+        holder.tv_item_nome_coisa.setText(coisa.getDescription());
+        holder.tv_item_coisa.setText(coisa.getName());
         holder.tv_item_nome_coisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

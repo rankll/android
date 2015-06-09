@@ -6,21 +6,16 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.ContextMenu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.InputStream;
 
@@ -51,8 +46,13 @@ public class ListagemCoisaDetalhesActivity extends Activity {
         this.btnAlterar = (Button) findViewById(R.id.btnAlterarCoisa);
 
         this.coisa = (Coisa) getIntent().getExtras().get("Coisa");
-        this.edtCoisaNome.setText(coisa.getNome());
-        this.edtCoisaDescricao.setText(coisa.getDescricao());
+
+        if (coisa.getId().equals("5")) {
+            imgCoisa.setImageResource(R.mipmap.logo_294);
+        }
+
+        this.edtCoisaNome.setText(coisa.getName());
+        this.edtCoisaDescricao.setText(coisa.getDescription());
 
         registerForContextMenu(imgCoisa);
 /*        imgCoisa.setOnClickListener(new View.OnClickListener() {
@@ -83,8 +83,8 @@ public class ListagemCoisaDetalhesActivity extends Activity {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        coisa.setNome(edtCoisaNome.getText().toString());
-                        coisa.setDescricao(edtCoisaDescricao.getText().toString());
+                        coisa.setName(edtCoisaNome.getText().toString());
+                        coisa.setDescription(edtCoisaDescricao.getText().toString());
                         Intent it = new Intent();
                         it.putExtra("objCoisa", coisa);
                         setResult(0, it);

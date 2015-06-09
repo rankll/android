@@ -22,11 +22,11 @@ import adapter.CoisaAdapter;
 import dominio.Coisa;
 
 
-public class ListagemCoisaActivity_with_listview extends Activity {
+public class ListagemCoisaActivity_with_listview_2 extends Activity {
 
     // Criar uma lista de Ranks
     List<Coisa> items = new ArrayList<Coisa>();
-    //private ListView lvCoisa;
+    private ListView lvCoisa;
     private GridView gvCoisa;
     private final int REQUEST_UPDATE_COISA = 0;
     private final int REQUEST_INSERT_COISA = 1;
@@ -37,21 +37,21 @@ public class ListagemCoisaActivity_with_listview extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coisa_listagem_with_listview);
 
-        criar_popular();
+        //criar_popular();
         adapter = new CoisaAdapter(this, items);
-        //lvCoisa = (ListView)findViewById(R.id.lv_coisa);
+        lvCoisa = (ListView)findViewById(R.id.lv_coisa);
         gvCoisa = (GridView)findViewById(R.id.gv_coisa);
-        //lvCoisa.setAdapter(adapter);
+        lvCoisa.setAdapter(adapter);
         gvCoisa.setAdapter(adapter);
 
-        gvCoisa.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvCoisa.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Coisa item = (Coisa) parent.getItemAtPosition(position);
                 item.setPosition(position);
 
 
-                Intent it = new Intent(ListagemCoisaActivity_with_listview.this, ListagemCoisaDetalhesActivity.class);
+                Intent it = new Intent(ListagemCoisaActivity_with_listview_2.this, ListagemCoisaDetalhesActivity.class);
                 it.putExtra("Coisa", item);
                 startActivityForResult(it, REQUEST_UPDATE_COISA);
             }
@@ -62,14 +62,11 @@ public class ListagemCoisaActivity_with_listview extends Activity {
     public void criar_popular(){
         items = new ArrayList<Coisa>();
 
-        //for(int i=0; i<5; i++){
-            items.add(new Coisa("1", "Honda 125 cc", "Honda 125 cc "));
-            items.add(new Coisa("2", "Educação RN", "Educação RN "));
-            items.add(new Coisa("3", "Escola Est. Maria Rosa", "Escola Est. Maria Rosa "));
-            items.add(new Coisa("4", "Saúde RN", "Saúde RN"));
-            items.add(new Coisa("5", "Bar 294", "Bar e Restaurante 294"));
-
-        //}
+        for(int i=0; i<5; i++){
+            items.add(new Coisa(i+"", "Grécio Beline "+i, "descricaogrecio "+i));
+            items.add(new Coisa(i+"", "André Miranda " + i, "descricaoandre "+i));
+            items.add(new Coisa(i+"", "Hélio Feliciano " + i, "descricaohelio "+i));
+        }
 
     }
 
@@ -91,7 +88,7 @@ public class ListagemCoisaActivity_with_listview extends Activity {
         if (id == R.id.action_settings) {
             return true;
         } else if(id == R.id.action_add_coisa){
-            Intent it = new Intent(ListagemCoisaActivity_with_listview.this, CadastroCoisaActivity.class);
+            Intent it = new Intent(ListagemCoisaActivity_with_listview_2.this, CadastroCoisaActivity.class);
             startActivityForResult(it, REQUEST_INSERT_COISA);
         } else if(id == R.id.action_notification){
             EnviarNotificacao();
@@ -107,7 +104,7 @@ public class ListagemCoisaActivity_with_listview extends Activity {
                         .setContentTitle("Nova notificação")
                         .setContentText("Olá, seja bem vindo ao Rankll!");
 
-        Intent resultIntent = new Intent(this, ListagemCoisaActivity_with_listview.class);
+        Intent resultIntent = new Intent(this, ListagemCoisaActivity_with_listview_2.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addParentStack(RankearActivity.class);
         stackBuilder.addNextIntent(resultIntent);

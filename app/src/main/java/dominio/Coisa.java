@@ -7,9 +7,11 @@ import java.io.Serializable;
  */
 public class Coisa implements Serializable {
 
-    private int id;
-    private String nome;
-    private String descricao;
+    private String _id;
+    private String name;
+    private String description;
+    private ThingType thingType;
+
     private String[] tags;
 
     private int position;
@@ -17,49 +19,49 @@ public class Coisa implements Serializable {
     public Coisa() {
     }
 
-    public Coisa(int id, String nome, String descricao, String[] tags) {
+    public Coisa(String id, String name, String description, String[] tags) {
 
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
+        this._id = id;
+        this.name = name;
+        this.description = description;
         this.tags = tags;
     }
 
-    public Coisa(int id, String nome, String descricao, int position) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
+    public Coisa(String id, String name, String description, int position) {
+        this._id = id;
+        this.name = name;
+        this.description = description;
         this.position = position;
     }
 
-    public Coisa(int id, String nome, String descricao) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
+    public Coisa(String id, String name, String description) {
+        this._id = id;
+        this.name = name;
+        this.description = description;
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(String id) {
+        this._id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String[] getTags() {
@@ -78,8 +80,16 @@ public class Coisa implements Serializable {
         this.position = position;
     }
 
+    public ThingType getThingType() {
+        return thingType;
+    }
+
+    public void setThingType(ThingType thingType) {
+        this.thingType = thingType;
+    }
+
     @Override
     public String toString(){
-        return this.getNome() + " / " + this.getDescricao();
+        return this.getName() + " / " + this.getDescription();
     }
 }
