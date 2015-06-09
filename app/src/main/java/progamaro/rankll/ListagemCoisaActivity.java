@@ -37,6 +37,7 @@ public class ListagemCoisaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coisa_listagem);
 
+
         //DataThings data = new DataThings();
         //data.getYourThings(this);
 
