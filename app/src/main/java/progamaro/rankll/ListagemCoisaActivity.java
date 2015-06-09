@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapter.CardCoisaAdapter;
-import data.DataThings;
+//import data.DataThings;
 import dominio.Coisa;
 
 
@@ -37,8 +37,8 @@ public class ListagemCoisaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coisa_listagem);
 
-        DataThings data = new DataThings();
-        data.getYourThings(this);
+        //DataThings data = new DataThings();
+        //data.getYourThings(this);
 
         criar_popular();
         setLayout();
